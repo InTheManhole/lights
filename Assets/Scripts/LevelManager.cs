@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour {
         // Init ground
         gameObject.AddComponent<GroundBuilder>();
         ground = gameObject.GetComponent<GroundBuilder>();
-
+        ground.setPrefabs(groundPrefab, obstaclesPrefabs);
         ground.BuildGround(size);
 
         // Add player

@@ -9,8 +9,6 @@ public class Player : MonoBehaviour {
 
     void Start() {
         gameObject.tag = "Player";
-
-        transform.position = new Vector3(0f, 1f, 0f);        
     }
    
     void Update() {

@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GroundBuilder : MonoBehaviour {
-    public GameObject planePrefab;
+    private GameObject planePrefab;
 
-    public GameObject[] obstaclePrefabs;
+    private GameObject[] obstaclePrefabs;
 
     private GameObject[] allObjects;
-
-    private GameObject plane;
 
     private int border = 5;
 
@@ -20,12 +18,18 @@ public class GroundBuilder : MonoBehaviour {
     public bool[][] groundMatrix;
 
 
+    public void setPrefabs(GameObject plane, GameObject[] obstacles) {
+        planePrefab = plane;
+        obstaclePrefabs = obstacles;
+    }
+
+
     public void BuildGround(int inputSize = 50) {
         DestroyGround();
         size = inputSize;
 
         // Init plane
-        plane = Instantiate(planePrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        GameObject plane = Instantiate(planePrefab, new Vector3(0, 0, 0), Quaternion.identity);
         plane.transform.localScale += new Vector3(size + border, 0, size + border);
 
         PopulateObstacles();
