@@ -8,6 +8,8 @@ public class Player : MonoBehaviour {
     private float spinSpeed = 1f;
 
     void Start() {
+        gameObject.tag = "Player";
+
         transform.position = new Vector3(0f, 1f, 0f);        
     }
    
