@@ -7,7 +7,6 @@ public class GroundBuilder : MonoBehaviour {
 
     public GameObject[] obstaclePrefabs;
 
-
     private GameObject[] allObjects;
 
     private GameObject plane;
@@ -21,7 +20,7 @@ public class GroundBuilder : MonoBehaviour {
     public bool[][] groundMatrix;
 
 
-    public void BuildAmbient(int inputSize = 50) {
+    public void BuildGround(int inputSize = 50) {
         DestroyGround();
         size = inputSize;
 
