@@ -76,7 +76,7 @@ public class GroundBuilder : MonoBehaviour {
     public void DestroyGround() {
         Destroy(ground);
         size = 0;
-        foreach(GameObject obj in allObjects) Destroy(obj);
+        foreach(GameObject obj in allObjects.ToArray()) Destroy(obj);
         allObjects.Clear();
     }
 }
