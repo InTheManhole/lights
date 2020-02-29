@@ -9,6 +9,8 @@ public class GroundBuilder : MonoBehaviour {
 
     private GameObject[] allObjects;
 
+    private GameObject ground;
+
     private int border = 5;
 
     private int size = 0;
@@ -29,8 +31,8 @@ public class GroundBuilder : MonoBehaviour {
         size = inputSize;
 
         // Init plane
-        GameObject plane = Instantiate(planePrefab, new Vector3(0, 0, 0), Quaternion.identity);
-        plane.transform.localScale += new Vector3(size + border, 0, size + border);
+        ground = Instantiate(planePrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        ground.transform.localScale += new Vector3(size + border, 0, size + border);
 
         PopulateObstacles();
     }
@@ -71,7 +73,7 @@ public class GroundBuilder : MonoBehaviour {
     }
 
     public void DestroyGround() {
-        Destroy(plane);
+        Destroy(ground);
         size = 0;
         foreach(GameObject obj in allObjects) Destroy(obj);
     }
