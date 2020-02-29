@@ -7,7 +7,7 @@ public class GroundBuilder : MonoBehaviour {
 
     private GameObject[] obstaclePrefabs;
 
-    private GameObject[] allObjects;
+    private List<GameObject> allObjects;
 
     private GameObject ground;
 
@@ -44,7 +44,8 @@ public class GroundBuilder : MonoBehaviour {
     void AddObstacle(int i, int j) {
         int halfSize = (size + (border * 2)) / 2;
         GameObject obstacle = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
-        Instantiate(obstacle, new Vector3((i - halfSize) * cellSize, 0, (j - halfSize) * cellSize), Quaternion.identity);
+        GameObject instantiatedObstacle = Instantiate(obstacle, new Vector3((i - halfSize) * cellSize, 0, (j - halfSize) * cellSize), Quaternion.identity);
+        allObjects.Add(instantiatedObstacle);
     }
 
     private void PopulateObstacles() {
@@ -76,5 +77,6 @@ public class GroundBuilder : MonoBehaviour {
         Destroy(ground);
         size = 0;
         foreach(GameObject obj in allObjects) Destroy(obj);
+        allObjects.Clear();
     }
 }
