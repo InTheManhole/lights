@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
+  - component: {fileID: 705507996}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -213,6 +214,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &705507996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832cf99f528f044c28ce62dea3b964fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 0}
+  playerPrefab: {fileID: 0}
+  obstaclesPrefabs: []
+  size: 50
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +325,7 @@ GameObject:
   - component: {fileID: 1495551937}
   - component: {fileID: 1495551936}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: LevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -322,11 +340,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1495551935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6656845e079894f6ca30e0b88f322e8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 832cf99f528f044c28ce62dea3b964fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planePrefab: {fileID: 1506246949985883096, guid: 55c1fd0ed5d2a4c7c815cb71cac7793e,
+  groundPrefab: {fileID: 6459775770251300329, guid: 932c4e0b17f2b994e9aa46ec712b2ca9,
     type: 3}
+  enemyPrefab: {fileID: 289538135534281304, guid: 1fabf140af4d1c848aa3def4569d3347,
+    type: 3}
+  playerPrefab: {fileID: 3717376204011041913, guid: ac624b126822e4b45bab48fd53414244,
+    type: 3}
+  obstaclesPrefabs:
+  - {fileID: 1690617885004564441, guid: 7c9694361aaf8c842b7dd9be141f01d6, type: 3}
+  - {fileID: 3536210850095720587, guid: b5b5c24f13b9eed489d9a91122ad4704, type: 3}
+  size: 50
 --- !u!4 &1495551937
 Transform:
   m_ObjectHideFlags: 0
