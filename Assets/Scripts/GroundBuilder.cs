@@ -66,7 +66,7 @@ public class GroundBuilder : MonoBehaviour {
                 } else {
                     groundMatrix[i][j] = (
                         Random.Range(0f, 1f) < Utils.CurveCoefficient(i, fullSize)
-                        && Random.Range(0f, 1f) < Utils.CurveCoefficient(j, fullSize)
+                        || Random.Range(0f, 1f) < Utils.CurveCoefficient(j, fullSize)
                     );
                 }
 
