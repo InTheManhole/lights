@@ -9,7 +9,7 @@ public class GroundBuilder : MonoBehaviour {
     [SerializeField]
     private GameObject[] obstaclePrefabs;
 
-    private List<GameObject> allObjects;
+    private List<GameObject> allObjects = new List<GameObject>();
 
     private GameObject ground;
 
@@ -47,7 +47,7 @@ public class GroundBuilder : MonoBehaviour {
         int halfSize = (size + (border * 2)) / 2;
         GameObject obstacle = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
         GameObject instantiatedObstacle = Instantiate(obstacle, new Vector3((i - halfSize) * cellSize, 0, (j - halfSize) * cellSize), Quaternion.identity);
-        //allObjects.Add(instantiatedObstacle);
+        allObjects.Add(instantiatedObstacle);
     }
 
     private void PopulateObstacles() {
@@ -78,9 +78,9 @@ public class GroundBuilder : MonoBehaviour {
     public void DestroyGround() {
         Destroy(ground);
         size = 0;
-        //if (allObjects.Count > 0) {
-        //    foreach (GameObject obj in allObjects.ToArray()) Destroy(obj);
-        //    allObjects.Clear();
-        //}
+        if (allObjects.Count > 0) {
+            foreach (GameObject obj in allObjects.ToArray()) Destroy(obj);
+            allObjects.Clear();
+        }
     }
 }
