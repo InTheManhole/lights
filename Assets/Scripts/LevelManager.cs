@@ -17,6 +17,8 @@ public class LevelManager : MonoBehaviour {
 
     private GameObject player;
 
+    private GameObject playerCamera;
+
 
     void Start() {
         // Init ground
@@ -26,8 +28,16 @@ public class LevelManager : MonoBehaviour {
         ground.BuildGround(size);
 
         // Add player
-        player = Instantiate(playerPrefab, new Vector3(0f, 1f, 0f), Quaternion.identity);
+        player = Instantiate(playerPrefab, new Vector3(0f, 0.5f, 0f), Quaternion.identity);
         player.AddComponent<Player>();
+
+        // Add Camera
+        playerCamera = GameObject.FindGameObjectWithTag(Tags.CAMERA);
+        playerCamera.AddComponent<FollowPlayer>();
+        playerCamera.GetComponent<FollowPlayer>().offsetX = 0;
+        playerCamera.GetComponent<FollowPlayer>().offsetY = 10;
+        playerCamera.GetComponent<FollowPlayer>().offsetZ = -10;
+        playerCamera.GetComponent<FollowPlayer>().lookAtPlayer = true;
     }
 
     // Update is called once per frame

@@ -12,6 +12,7 @@ public class FollowPlayer : MonoBehaviour {
     public float offsetZ = 0;
 
     public bool allowRotation = false;
+    public bool lookAtPlayer = false;
 
     void Start() {
         player = GameObject.FindGameObjectWithTag(Tags.PLAYER);
@@ -20,5 +21,6 @@ public class FollowPlayer : MonoBehaviour {
     void LateUpdate() {
         transform.position = player.transform.position + new Vector3(offsetX, offsetY, offsetZ);
         if (allowRotation) transform.rotation = player.transform.rotation;
+        if (lookAtPlayer) transform.LookAt(player.transform.position);
     }
 }

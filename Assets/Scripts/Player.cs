@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     private float walkSpeed = 5f;
-    private float spinSpeed = 1f;
+    private float spinSpeed = 2f;
 
     void Start() {
         gameObject.tag = "Player";
